@@ -1,5 +1,5 @@
 (function(w) {
-   var inc, dec, roundCount = 1, reps = 1, repModMode = 1;
+   var inc, dec, roundCount = reps = repModMode = 1;
 
    function update(d) {
       var time = document.querySelector('#time');
