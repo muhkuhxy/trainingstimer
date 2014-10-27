@@ -6,20 +6,19 @@
                <div class="page-header">
                   <h1>Uebung 1: Tuerklimmzug</h1>
                </div>
-               <p>
+               <p class="exercise-description">
                   Lorem eaque eligendi saepe eius veniam odio. At non in magnam repellat tempora odio non. Nemo architecto aut dignissimos pariatur dolores dignissimos blanditiis, nobis, dicta velit illo dignissimos? Esse rerum.
                </p>
+               <p>{{ intervalLengthMin }}-Minuten-Intervall pro Satz</p>
+               <hr />
             </div>
             <div class="col-xs-12 bg-success text-center" ng-show="done">Fertig, weiter zur naechsten Uebung</div>
-            <div class="col-xs-4">
-               <button class="btn btn-primary" ng-click="start()">Los</button>
-               <button class="btn btn-default" ng-click="stop()">Fertig</button>
+            <div class="col-xs-12">
+               <div id="clock" class="text-center">{{ clock }}</div>
             </div>
-            <div class="col-xs-4">
-               <div id="clock">{{ clock }}</div>
-            </div>
-            <div class="col-xs-4">
-               <div>{{ intervalLengthMin }}-Minuten-Intervall pro Satz</div>
+            <div class="col-xs-12 text-center">
+               <button class="btn btn-primary" ng-click="start()" ng-hide="started">Los</button>
+               <button class="btn" ng-click="stop()" ng-hide="done" ng-class="{'btn-default': !started, 'btn-primary': started}">Fertig</button>
             </div>
             <div class="col-xs-12">
                <table class="table">

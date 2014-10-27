@@ -1,11 +1,11 @@
 var timerApp = angular.module('timers', []);
 
 timerApp.controller('intervalTimer', ['$scope', '$timeout', '$filter', function($scope, $timeout, $filter) {
-   var sets = 3, startedOn, pause, started, setFinished,
+   var sets = 3, startedOn, pause, setFinished,
       dateFilter = $filter('date'),
       resetClockVars = function() {
          pause = false;
-         started = true;
+         $scope.started = true;
          startedOn = Date.now();
       },
       ticking = function() {
@@ -38,7 +38,7 @@ timerApp.controller('intervalTimer', ['$scope', '$timeout', '$filter', function(
       $scope.done = $scope.sets.length >= sets;
    }
    $scope.start = function() {
-      if(!started) {
+      if(!$scope.started) {
          resetClockVars();
          updateClock();
       }
