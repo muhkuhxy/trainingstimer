@@ -1,0 +1,52 @@
+@html.extend('layout', function(model) {
+   @html.block('content', function() {
+      <div class="row" ng-app="timers">
+         <div ng-controller="intervalTimer">
+            <div class="col-med-12">
+               <div class="page-header">
+                  <h1>Uebung 1: Tuerklimmzug</h1>
+               </div>
+               <p>
+                  Lorem eaque eligendi saepe eius veniam odio. At non in magnam repellat tempora odio non. Nemo architecto aut dignissimos pariatur dolores dignissimos blanditiis, nobis, dicta velit illo dignissimos? Esse rerum.
+               </p>
+            </div>
+            <div class="col-xs-12 bg-success text-center" ng-show="done">Fertig, weiter zur naechsten Uebung</div>
+            <div class="col-xs-4">
+               <button class="btn btn-primary" ng-click="start()">Los</button>
+               <button class="btn btn-default" ng-click="stop()">Fertig</button>
+            </div>
+            <div class="col-xs-4">
+               <div id="clock">{{ clock }}</div>
+            </div>
+            <div class="col-xs-4">
+               <div>{{ intervalLengthMin }}-Minuten-Intervall pro Satz</div>
+            </div>
+            <div class="col-xs-12">
+               <table class="table">
+                  <thead>
+                     <tr>
+                        <td>Satz</td>
+                        <td>Wiederholungen</td>
+                        <td>Zeit</td>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr ng-repeat="set in sets">
+                        <td>{{ $index + 1 }}</td>
+                        <td><select ng-model="set.reps" ng-options="i for i in [6,7,8,9,10,11,12]"></select></td>
+                        <td>{{ set.time }}</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+         <ul class="pager">
+            <li class="next"><a href="#">Umgekehrtes Bankkdruecken &raquo;</a></li>
+         </ul>
+      </div>
+
+      <script src="/javascript/angular.js"></script>
+      <script src="/javascript/timers/interval.js"></script>
+   })
+})
+

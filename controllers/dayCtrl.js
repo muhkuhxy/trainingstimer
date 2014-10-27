@@ -1,5 +1,7 @@
-module.exports = {
-   index: function(req, res) {
-      res.render('day', {});
-   }
+
+module.exports.index = function(req, res) {
+   res.render('day', {
+      title: "Workout"
+   });
 }
+
