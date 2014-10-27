@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>@model.title</title>
+   <link rel="stylesheet" href="/stylesheets/bootstrap.css" type="text/css" media="screen" charset="utf-8">
+   <link rel="stylesheet" href="/stylesheets/style.css" type="text/css" media="screen" charset="utf-8">
+</head>
+<body>
+   <div class="container-fluid">
+      @html.block('content')
+
+      <footer>
+         @html.block('footer')
+      </footer>
+   </div>
+</body>
+</html>
+

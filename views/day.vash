@@ -1,0 +1,22 @@
+@html.extend('layout', function(model) {
+   @html.block('content', function(model) {
+      <h1>Woche 3, Tag 3</h1>
+      <small>Kraft - Intervallsaetze</small>
+      <div class="row">
+         <div class="col-md-8">
+            <h2>Uebung 1</h2>
+            Tuerklimmzug
+            <h2>Uebung 2</h2>
+            Umgekehrtes Bankdruecken
+         </div>
+         <aside class="col-md-4">
+            <button class="btn btn-primary">Trainieren</button>
+            <ul>
+               <li>Drei Saetze pro Uebung Bla Bla</li>
+               <li>sechs bis zwoelf wiederholungen pro satz</li>
+               <li>3 minuten intervalle pro satz</li>
+            </ul>
+         </aside>
+      </div>
+   })
+})
