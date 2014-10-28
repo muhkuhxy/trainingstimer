@@ -1,6 +1,7 @@
+var log = require('debug')('trainingstimer')
 module.exports.index = function(req, res) {
-   res.render('timer', {
-      title: "Timer",
-      timer: req.param.timer
+   log('render '+req.params.timer)
+   res.render(req.params.timer, {
+      title: "Tuerklimmzug"
    });
 }

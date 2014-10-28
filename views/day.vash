@@ -12,6 +12,7 @@
          </div>
          <aside class="col-md-4 panel">
             <ul>
+               <li>zusammenklickbare workouts legen nahe, die uebungen nur als referenzen in den zeitplaenen zu haben</li>
                <li>Amet cumque similique odio laudantium voluptas. Odio voluptatum ab dolores commodi dolor voluptates nisi delectus? A facilis mollitia dolorem laborum odio dolore repellendus. Itaque dolor facere officia vitae aliquid. Officia.</li>
                <li>Ipsum aliquid elit itaque voluptatibus nemo, nam error! Amet explicabo quaerat sint ut praesentium, beatae impedit. Aliquam esse esse illo consequuntur velit distinctio suscipit quidem molestiae. Magni harum vel fuga.</li>
                <li>Ipsum dolores cum quasi atque rem? Quasi eum deserunt repellat molestias praesentium dolor ducimus harum voluptatum! Ab dolorum porro asperiores quis numquam quisquam sequi vel! Nostrum sed fuga eaque quos.</li>
@@ -20,7 +21,7 @@
          </aside>
       </div>
       <ul class="pager">
-         <li class="next"><a href="/timer/interval">Trainieren &raquo;</a></li>
+         <li class="next"><a href="/timer/intervalTimer">Trainieren &raquo;</a></li>
       </ul>
    })
 })
