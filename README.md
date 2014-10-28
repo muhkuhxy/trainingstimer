@@ -1,4 +1,4 @@
 trainingstimer
 ==============
 
-be your own gym timer app
+you are your own gym timer app
