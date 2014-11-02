@@ -14,13 +14,19 @@
             </div>
             <div class="col-xs-12 bg-success text-center" ng-show="done">Fertig, weiter zur naechsten Uebung</div>
             <div class="col-xs-12 text-center">
-               <div id="superClock">Gesamt: {{ superClock }}</div>
-               <div id="clock" ng-class="{pause: pause}">Satz: {{ clock }}</div>
-            </div>
-            <div class="col-xs-12 text-center">
-               <button class="btn btn-primary" ng-click="start()" ng-hide="started">Los</button>
-               <button class="btn" ng-click="stop()" ng-hide="!started || done" ng-class="{'btn-primary': started}">Fertig</button>
-               <button class="btn btn-default" ng-click="peak()" ng-hide="!started || peaked">Spitze</button>
+               <div class="row">
+                  <div class="col-md-4" ng-switch="state">
+                     <button ng-switch-when="idle" class="btn btn-lg btn-primary" ng-click="start()">Los</button>
+                     <button ng-switch-when="started" class="btn btn-lg btn-primary" ng-click="stop()" ng-disabled="pause || done">Fertig</button>
+                  </div>
+                  <div class="col-md-4">
+                     <div id="superClock">Gesamt: {{ superClock }}</div>
+                     <div id="clock">Satz: {{ clock }}</div>
+                  </div>
+                  <div class="col-md-4">
+                     <button class="btn btn-lg btn-default" ng-click="peak()" ng-hide="!started" ng-disabled="peaked">Spitze</button>
+                  </div>
+               </div>
             </div>
             <div class="col-xs-12">
                <table class="table">

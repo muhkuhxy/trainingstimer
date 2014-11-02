@@ -8,16 +8,17 @@ timerApp.filter('clock', ['$filter', function($filter) {
 }]);
 
 timerApp.controller('stepInterval', ['$scope', '$timeout', '$filter', function($scope, $timeout, $filter) {
-   var startedOn, pause, reps = repMod = 1, setFinished, superStartedOn,
+   var startedOn, reps = repMod = 1, setFinished, superStartedOn,
       formatClock = $filter('clock'),
       resetClockVars = function() {
-         pause = false;
+         $scope.pause = false;
          $scope.started = true;
          startedOn = Date.now();
       },
       ticking = function() {
          return !$scope.done;
       };
+   $scope.state = 'idle';
    $scope.sets = [];
    $scope.clock = '00:00,0';
    $scope.superClock = '00:00,0';
@@ -27,13 +28,13 @@ timerApp.controller('stepInterval', ['$scope', '$timeout', '$filter', function($
    };
    function updateClock() {
       var now = Date.now(),
-         clockValue = pause ? startedOn + 2*previousSetTime() - now : now - startedOn,
+         clockValue = $scope.pause ? startedOn + 2*previousSetTime() - now : now - startedOn,
          superClockValue = now - superStartedOn;
       if( now - superStartedOn > 7.5*60*1000 ) {
          $scope.done = true;
       }
       if( clockValue < 0 ) {
-         if(!pause) throw new Error("clockValue became negative, but not in countdown mode");
+         if(!$scope.pause) throw new Error("clockValue became negative, but not in countdown mode");
          resetClockVars();
          reps += repMod;
          $scope.done = reps === 0;
@@ -43,7 +44,7 @@ timerApp.controller('stepInterval', ['$scope', '$timeout', '$filter', function($
       $scope.superClock = formatClock(superClockValue);
       if(setFinished) {
          finishSet(clockValue);
-         pause = true;
+         $scope.pause = true;
          setFinished = false;
       }
       if(ticking()) {
@@ -55,13 +56,14 @@ timerApp.controller('stepInterval', ['$scope', '$timeout', '$filter', function($
    }
    $scope.start = function() {
       if(!$scope.started) {
+         $scope.state = 'started';
          superStartedOn = Date.now();
          resetClockVars();
          updateClock();
       }
    };
    $scope.stop = function() {
-      if(!pause && !setFinished) {
+      if(!$scope.pause && !setFinished) {
          setFinished = true;
       }
    };
